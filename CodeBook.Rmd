@@ -1,0 +1,48 @@
+---
+title: "CodeBook"
+author: "Shaun Holt"
+date: "08 May 2016"
+output: word_document
+---
+
+This is the Code Book for the Getting and Cleaning Data Assignment
+
+The book describes the code used in the run_analysis.R script file
+
+Download
+The First section of code explains the Download process used:
+I used the "downloader" package for the download so if necessary this should be installed before using the script
+The download section downloads the following file:
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+It then unzips the file and sets the working directory to the directory the data is unzipped to.
+Please note that you should set the working directory according to your working directories in the script file
+
+Check Files and load Packages
+The next section checks the files and directories to identify the files to use
+Uses the dim and head functions
+I then load all potential R packages that may be of use with the data analysis
+
+Read Data and combine files
+After analysing the data I use the read.table function to read the following data in order:
+•	Activity file
+•	The train and test X files
+•	The train and test Y files
+•	The train and test subject files
+•	The features file
+
+At the same time once loaded I examine the data in the loaded files and then combine them step by step using the rbind function. (The X, Y and subject test and train loaded files)
+
+Bring names into data
+The next step is to bring the names into the data. For this I use the names function and initially bring the names in for the subject, x and y combined data sets.
+
+Means and Standard Deviations
+I then use the grep function to identify the means and standard deviations and create a new data set
+
+I then remove () and change the names in the new file to lower case
+
+The next step is to create the descriptive names and i again use the names function to do this.
+
+Final data sets
+Then using the cbind and write.table functions I create a new tidy data subset.
+
+The final step is to create the new tidy table file which uses the aggregate function. This table is then output to file using the write.table function.
